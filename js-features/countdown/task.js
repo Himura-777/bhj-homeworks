@@ -1,7 +1,12 @@
+const time = document.getElementById('timer');
+
+let timeLeft = parseInt(time.TextContent);
+
 const remainingTime = function () {
-	const time = document.getElementById('timer');
-	time.TextContent -= 1;
-	if (time.TextContent === 0) {
+	if (timeLeft > 0) {
+		time.TextContent = timeLeft;
+		timeLeft--;
+	} else {
 		alert('Вы победили в конкурсе!');
 	}
 };
