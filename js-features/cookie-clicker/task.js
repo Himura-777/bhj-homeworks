@@ -1,10 +1,18 @@
-const clickerCount = document.getElementById('clicker__counter');
-const clickerCookie = document.getElementById('clicker__cookie');
+const clickerCount = document.getElementById('clicker__counter')
+const clickerCookie = document.getElementById('cookie')
 
-let clickCount = parseInt(clickerCount.textContent);
+let isBig = false
 
 clickerCookie.onclick = function () {
-	clickCount++;
-	clickerCount.textContent = clickCount;
-	clickerCookie.width = 300;
-};
+	clickerCount.textContent = parseInt(clickerCount.textContent) + 1
+
+	if (isBig) {
+		clickerCookie.style.width = '200px'
+		clickerCookie.style.height = '200px'
+	} else {
+		clickerCookie.style.width = '250px'
+		clickerCookie.style.height = '250px'
+	}
+
+	isBig = !isBig
+}

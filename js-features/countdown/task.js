@@ -1,14 +1,13 @@
-const time = document.getElementById('timer');
+const time = document.getElementById('timer')
 
-let timeLeft = parseInt(time.TextContent);
+let timeLeft = parseInt(time.textContent, 10)
 
-const remainingTime = function () {
+const remainingTime = setInterval(() => {
 	if (timeLeft > 0) {
-		time.TextContent = timeLeft;
-		timeLeft--;
+		timeLeft--
+		time.textContent = timeLeft
 	} else {
-		alert('Вы победили в конкурсе!');
+		clearInterval(remainingTime)
+		alert('Вы победили в конкурсе!')
 	}
-};
-
-setInterval(remainingTime, 1000);
+}, 1000)

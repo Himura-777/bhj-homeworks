@@ -1,18 +1,37 @@
-const deadCount = document.getElementById('dead');
-const lostCount = document.getElementById('lost');
+;(() => {
+	let deadCount = 0
+	let lostCount = 0
 
-for (let index = 1; index <= 9; index++) {
-	getHole(i).onclick = function () {
-		if (getHole(i).classList.contains('hole_has-mole')) {
-			deadCount.textContent++;
-			if (deadCount === 10) {
-				alert('Вы выиграли!');
+	const updateStats = () => {
+		document.getElementById('dead').textContent = deadCount
+		document.getElementById('lost').textContent = lostCount
+	}
+
+	const resetGame = () => {
+		deadCount = 0
+		lostCount = 0
+		updateStats()
+	}
+
+	for (let i = 1; i <= 9; i++) {
+		const hole = document.getElementById(`hole${i}`)
+
+		hole.onclick = () => {
+			if (hole.className.includes('hole_has-mole')) {
+				deadCount++
+			} else {
+				lostCount++
 			}
-		} else {
-			lostCount.textContent++;
-			if (lostCount === 5) {
-				alert('Игра окончена. Вы проиграли!');
+
+			updateStats()
+
+			if (deadCount >= 10) {
+				alert('Победа! Вы убили 10 кротов!')
+				resetGame()
+			} else if (lostCount >= 5) {
+				alert('Игра окончена. Вы промахнулись 5 раз.')
+				resetGame()
 			}
 		}
-	};
-}
+	}
+})()
