@@ -7,7 +7,8 @@ value.addEventListener('click', () => {
 })
 
 items.forEach(item => {
-	item.addEventListener('click', () => {
+	item.addEventListener('click', event => {
+		event.preventDefault()
 		const text = item.textContent
 		value.textContent = text
 		list.classList.remove('dropdown__list_active')
