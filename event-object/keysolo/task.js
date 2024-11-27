@@ -26,7 +26,7 @@ class Game {
       DOM-элемент текущего символа находится в свойстве this.currentSymbol.
      */
 		document.addEventListener('keyup', event => {
-			const enteredSymbol = String.fromCharCode(event.key).toLowerCase()
+			const enteredSymbol = event.key.toLowerCase()
 			const currentSymbol = this.currentSymbol.textContent.toLowerCase()
 
 			if (enteredSymbol === currentSymbol) {
