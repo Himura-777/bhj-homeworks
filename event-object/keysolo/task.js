@@ -13,7 +13,7 @@ class Game {
 	reset() {
 		this.setNewWord()
 		this.winsElement.textContent = 0
-		this.lossElement.textContent = 0
+		this.lossElement.textContent = 0s
 	}
 
 	registerEvents() {
