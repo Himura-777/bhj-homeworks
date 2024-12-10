@@ -13,11 +13,13 @@ sizeControl.forEach(control => {
 
     book.classList.remove("font-size_small", "font-size_big");
 
-    const size = control.data.size;
+    const size = control.dataset.size;
     if (size === "small") {
       book.classList.add("book_fs-small");
     } else if (size === "big") {
       book.classList.add("font-size_big");
+    } else {
+      book.className = "";
     }
   });
 });
